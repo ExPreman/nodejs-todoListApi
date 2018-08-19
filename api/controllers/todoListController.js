@@ -34,7 +34,8 @@ exports.update_task = function(req, res) {
   Task.findOneAndUpdate({
     _id: req.params.taskId
   }, req.body, {
-    new: true
+    new: true,
+    runValidators: true
   }, function(err, task) {
     if (err) {
       res.send(err);
